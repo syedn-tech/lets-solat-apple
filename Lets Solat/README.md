@@ -20,10 +20,10 @@ The latest standalone release for macOS is available on GitHub Releases:
 ### Installation on macOS
 
 1. **Download the Installer**:
-   Download the latest `.dmg` file (e.g. `LetsSolat.dmg`) from the **[Releases](https://github.com/syedn-tech/lets-solat-apple/releases)** page.
+   Download the latest `.dmg` file from the **[Releases](https://github.com/syedn-tech/lets-solat-apple/releases)** page.
 
 2. **Mount & Drag to Applications**:
-   Open the downloaded `.dmg` and drag **LetsSolat.app** into your **Applications** folder (`/Applications`).
+   Open the downloaded `.dmg` and drag **Lets Solat.app** into your **Applications** folder (`/Applications`).
 
    <p align="center">
      <img src="Install%20dmg.png" alt="Install Let's Solat DMG" width="600" />
@@ -34,7 +34,7 @@ The latest standalone release for macOS is available on GitHub Releases:
 
    After dragging the app to the Applications folder, open **Terminal** and run:
    ```bash
-   xattr -cr "/Applications/LetsSolat.app"
+   xattr -cr "/Applications/Lets Solat.app"
    ```
 
 4. **Launch the App**:
