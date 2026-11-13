@@ -112,6 +112,10 @@ public final class LocalizationManager: ObservableObject {
             return isMalay ? "Esok" : "Tomorrow"
         case .tomorrowPrayerTimes:
             return isMalay ? "WAKTU SOLAT ESOK" : "TOMORROW'S PRAYER TIMES"
+        case .version:
+            return isMalay ? "Versi" : "Version"
+        case .versionInfo(let version, let build):
+            return isMalay ? "Versi \(version) (\(build))" : "Version \(version) (\(build))"
         }
     }
     
@@ -146,5 +150,7 @@ public final class LocalizationManager: ObservableObject {
         case today
         case tomorrow
         case tomorrowPrayerTimes
+        case version
+        case versionInfo(version: String, build: String)
     }
 }

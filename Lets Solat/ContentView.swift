@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewModel: PrayerTimeViewModel
     @ObservedObject var loc = LocalizationManager.shared
+    @Environment(\.openURL) private var openURL
     
     var body: some View {
         NavigationStack {
@@ -34,6 +35,15 @@ struct ContentView: View {
                                 }
                                 prayerRow(item: item)
                             }
+                            
+                            // App Version in Footer
+                            HStack(spacing: 4) {
+                                Text("\(loc.string(for: .appTitle)) \(AppSettings.formattedVersion)")
+                                    .font(.caption2)
+                                    .foregroundColor(.secondary.opacity(0.6))
+                            }
+                            .padding(.top, 16)
+                            .padding(.bottom, 4)
                         } else if viewModel.isLoading {
                             ProgressView(loc.string(for: .loading))
                                 .padding(.top, 40)
@@ -89,6 +99,18 @@ struct ContentView: View {
                             }
                         }
                         .pickerStyle(.inline)
+                        
+                        // App Version Section
+                        Section {
+                            Button {
+                                openURL(AppSettings.gitHubReleasesURL)
+                            } label: {
+                                Label(
+                                    loc.string(for: .versionInfo(version: AppSettings.appVersion, build: AppSettings.buildNumber)),
+                                    systemImage: "info.circle"
+                                )
+                            }
+                        }
                     } label: {
                         Label(loc.string(for: .settings), systemImage: "gearshape")
                     }

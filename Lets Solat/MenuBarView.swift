@@ -3,6 +3,7 @@ import SwiftUI
 struct MenuBarView: View {
     @EnvironmentObject var viewModel: PrayerTimeViewModel
     @ObservedObject var loc = LocalizationManager.shared
+    @Environment(\.openURL) private var openURL
     
     #if os(macOS)
     @Environment(\.openWindow) private var openWindow
@@ -181,6 +182,18 @@ struct MenuBarView: View {
                         }
                     }
                     #endif
+                    
+                    // App Version Section
+                    Section {
+                        Button {
+                            openURL(AppSettings.gitHubReleasesURL)
+                        } label: {
+                            Label(
+                                loc.string(for: .versionInfo(version: AppSettings.appVersion, build: AppSettings.buildNumber)),
+                                systemImage: "info.circle"
+                            )
+                        }
+                    }
                 } label: {
                     Image(systemName: "gearshape")
                 }

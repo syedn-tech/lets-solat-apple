@@ -1,10 +1,29 @@
 import Foundation
 
-// MARK: - App Setting Keys
+// MARK: - App Setting Keys & Metadata
 public enum AppSettings {
     public static let shortAdhanKey = "letssolat_short_adhan_enabled"
     public static let highlightOptionKey = "letssolat_highlight_option"
     public static let menuBarDisplayOptionKey = "letssolat_menubar_display_option"
+    
+    // MARK: - App Version & Release Info
+    public static let gitHubReleasesURL = URL(string: "https://github.com/syedn-tech/lets-solat-apple/releases")!
+    
+    public static var appVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
+    }
+    
+    public static var buildNumber: String {
+        Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "1"
+    }
+    
+    public static var formattedVersion: String {
+        "v\(appVersion) (\(buildNumber))"
+    }
+    
+    public static var versionDisplay: String {
+        "\(appVersion) (\(buildNumber))"
+    }
 }
 
 // MARK: - Highlight Choice in App Views
