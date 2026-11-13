@@ -1,4 +1,4 @@
-# Let's Solat (Apple Multiplatform) 🕌
+# Let's Solat (Apple Multiplatform) 🕋
 
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20iOS%20%7C%20watchOS%20%7C%20CarPlay-blue.svg)](https://github.com/syedn-tech/lets-solat-apple)
 [![Swift](https://img.shields.io/badge/Swift-5.10%20%2F%206.0-orange.svg)](https://swift.org)
@@ -18,13 +18,30 @@ The latest standalone release for macOS is available on GitHub Releases:
 ### 📦 **[View All Releases & Assets](https://github.com/syedn-tech/lets-solat-apple/releases)**
 
 ### Installation on macOS
-1. Download the latest `.zip` or `.dmg` from the **[Releases](https://github.com/syedn-tech/lets-solat-apple/releases)** page.
-2. Unzip (if applicable) and drag **Let's Solat.app** into your **Applications** folder (`/Applications`).
-3. Launch **Let's Solat** from Applications or Spotlight (`Cmd + Space`).
-   > **Note on macOS Gatekeeper**: Because releases might not be signed with an Apple Developer ID certificate yet, if macOS warns that the developer cannot be verified:
-   > - Right-click (or Control-click) **Let's Solat.app** in Finder and choose **Open**, then click **Open**.
-   > - Or navigate to **System Settings > Privacy & Security**, scroll down to the Security section, and click **Open Anyway**.
-4. When prompted:
+
+1. **Download the Installer**:
+   Download the latest `.dmg` file (e.g. `LetsSolat.dmg`) from the **[Releases](https://github.com/syedn-tech/lets-solat-apple/releases)** page.
+
+2. **Mount & Drag to Applications**:
+   Open the downloaded `.dmg` and drag **LetsSolat.app** into your **Applications** folder (`/Applications`).
+
+   <p align="center">
+     <img src="Install%20dmg.png" alt="Install Let's Solat DMG" width="600" />
+   </p>
+
+3. **Remove macOS Quarantine Attribute**:
+   Because the standalone build is not notarized with an Apple Developer certificate, macOS Gatekeeper may prevent it from opening or report that the file is damaged.
+
+   After dragging the app to the Applications folder, open **Terminal** and run:
+   ```bash
+   xattr -cr "/Applications/LetsSolat.app"
+   ```
+
+4. **Launch the App**:
+   Open **Let's Solat** from your **Applications** folder or via Spotlight (`Cmd + Space`).
+
+5. **Grant Initial Permissions**:
+   When prompted on initial launch:
    - Allow **Location Services** so the app can automatically detect your JAKIM prayer zone.
    - Allow **Notifications** to receive punctual Adhan audio and prayer alerts.
 
